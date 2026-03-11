@@ -5,9 +5,32 @@
 # 用户信息（可选，用于个性化建议）
 user_info:
   nickname: ""                   # 昵称（例如：长沙彭于晏）
+  current_weight: null           # 当前体重(kg)
   target_weight: null            # 目标体重(kg)
   height: null                   # 身高(cm)
   age: null                      # 年龄
+  gender: null                   # 性别（male/female/other）
+  past_activity: "none"          # 运动基础：none(从未锻炼), slight(略有基础), good(基础不错), strong(基础很好), professional(专业运动员)
+  current_activity: "moderate"   # 当前/计划运动频率：sedentary(几乎不运动), light(每周1-2次), moderate(每周3-4次), active(每周5-6次), very_active(每天)
+
+# 运动基础选项说明：
+# none: 从来没有系统锻炼过
+# slight: 偶尔锻炼，略有运动基础
+# good: 基础不错，之前有过系统锻炼（如跑步、健身），最近可能没练
+# strong: 长期系统锻炼，运动基础很好
+# professional: 专业运动员或长期高强度训练背景
+
+# 当前/计划运动频率说明：
+# sedentary: 几乎不运动，办公室工作为主
+# light: 每周1-2次轻度运动（散步、瑜伽等）
+# moderate: 每周3-4次中等强度运动（慢跑、游泳等）
+# active: 每周5-6次高强度运动（力量训练、跑步等）
+# very_active: 每天都进行高强度运动或体力工作
+
+# 减脂目标设置（可选）
+weight_loss_goal:
+  weekly_rate: 0.5              # 每周目标减重速度(kg)，推荐0.25-1kg/周
+  calorie_deficit: null         # 热量缺口(kcal)，如果不设置将自动计算
 
 # 首次使用标记（系统自动管理，请勿手动修改）
 initialized: false
