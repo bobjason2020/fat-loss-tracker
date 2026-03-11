@@ -21,10 +21,7 @@
 **直接下载使用（推荐）**
 
 1. 下载本项目整个 `fat-loss-tracker` 文件夹
-2. 将文件夹内的 `fat-loss-tracker` 子文件夹复制到 Claude Code 的 skill 目录下：
-   - Windows: `%APPDATA%\Claude\claude_code_settings\skills\`
-   - macOS: `~/Library/Application Support/Claude/claude_code_settings/skills/`
-   - Linux: `~/.config/Claude/claude_code_settings/skills/`
+2. 将文件夹内的 `fat-loss-tracker` 子文件夹复制到 Claude Code 的 skill 目录下：`~/.claude/skills/`
 
 复制后的目录结构示例：
 ```
