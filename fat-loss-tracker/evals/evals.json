@@ -1,0 +1,23 @@
+{
+  "skill_name": "fat-loss-tracker",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "今天早餐吃了2个水煮蛋和一杯黑咖啡",
+      "expected_output": "记录早餐信息，对照减脂计划确认符合要求，并给予正面反馈，询问午餐计划",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "今天中午吃了米饭和鸡肉",
+      "expected_output": "询问米饭和鸡肉的具体用量（多少拳）",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "今天做了40分钟爬坡快走",
+      "expected_output": "记录运动信息，预估消耗热量，给予鼓励，询问身体感受和步数",
+      "files": []
+    }
+  ]
+}
