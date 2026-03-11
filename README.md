@@ -22,7 +22,11 @@
 **直接下载使用（推荐）**
 
 1. 下载本项目中的 `fat-loss-tracker` 技能文件夹（包含skill.md、config.example.yaml等）
-2. 将技能文件夹安装到 Claude Code 的 skills 目录下：`~/.claude/skills/`
+2. 将技能文件夹安装到对应工具的 skills 目录下：
+   - **Claude Code**: `C:\Users\<用户名>\.claude\skills`
+   - **Trae 国际版**: `C:\Users\<用户名>\.trae\skills`
+   - **Trae 中文版**: `C:\Users\<用户名>\.trae-cn\skills`
+   - **OpenClaw**: `C:\Users\<用户名>\.openclaw\skills`
 
 ### 2. 使用
 
