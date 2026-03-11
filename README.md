@@ -4,8 +4,9 @@
 
 ## 功能特性
 
-- **配置化管理** - 支持自定义记录存放路径，配置与代码分离
-- **初始化引导** - 首次使用自动引导用户完成配置
+- **本地目录存储** - 所有配置和记录都自动保存在当前工作目录的 `fat-loss-tracker/` 文件夹下，方便管理和备份
+- **固定目录结构** - 无需配置路径，所有数据都使用统一的目录结构，避免混乱
+- **初始化引导** - 首次使用自动引导用户完成配置，支持设置个性化昵称（例如：长沙彭于晏）
 - **日期智能识别** - 自动识别"今天"、"昨天"、"前天"或具体日期
 - **信息记录** - 支持饮食、运动、体重、睡眠、步数等多维度记录
 - **营养估算** - 自动预估热量和营养摄入（蛋白质、脂肪、碳水）
@@ -20,32 +21,37 @@
 
 **直接下载使用（推荐）**
 
-1. 下载本项目整个 `fat-loss-tracker` 文件夹
-2. 将文件夹内的 `fat-loss-tracker` 子文件夹复制到 Claude Code 的 skill 目录下：`~/.claude/skills/`
+1. 下载本项目中的 `fat-loss-tracker` 技能文件夹（包含skill.md、config.example.yaml等）
+2. 将技能文件夹安装到 Claude Code 的 skills 目录下：`~/.claude/skills/`
 
-复制后的目录结构示例：
+### 2. 使用
+
+当你在任意工作目录提到减脂相关内容时，技能会自动触发，并在**当前工作目录**下创建专门的记录文件夹：
+
 ```
-skills/
-└── fat-loss-tracker/           # <-- 将此文件夹复制到 skills 目录
-    ├── skill.md
-    ├── config.example.yaml
-    └── evals/
-        └── evals.json
+你的工作目录/
+└── fat-loss-tracker/           # <-- 自动创建的记录文件夹
+    ├── config.yaml             # 自动生成的配置文件
+    ├── 减脂计划.md              # 减脂计划文件
+    ├── 体重记录.md              # 体重记录文件
+    └── daily/                   # 每日记录目录
+        └── YYYY-MM-DD.md
 ```
+
+**注意：技能本身的文件（skill.md、evals等）和用户记录文件夹是分开的，记录文件夹只会包含你的个人数据，不会包含技能代码。**
 
 ### 2. 配置
 
 首次使用时，技能会自动引导你完成配置（设置记录存放路径和可选的用户信息）。
 
-也可以手动配置：复制 `config.example.yaml` 为 `config.yaml`，然后编辑填写配置：
+首次使用时，技能会自动引导你完成配置（设置昵称和可选的用户信息），并自动创建目录结构。
+
+也可以手动配置：在记录文件夹下编辑 `config.yaml`：
 
 ```yaml
-records_root_path: "./records"   # 记录存放根路径
-plan_filename: "减脂计划.md"     # 减脂计划文件名
-weight_filename: "体重记录.md"   # 体重记录文件名
-daily_dirname: "daily"           # 每日记录目录名
+# 用户信息（可选，用于个性化建议）
 user_info:
-  name: ""                       # 姓名
+  nickname: ""                   # 昵称（例如：长沙彭于晏）
   target_weight: null            # 目标体重(kg)
   height: null                   # 身高(cm)
   age: null                      # 年龄
@@ -63,14 +69,27 @@ initialized: true
 
 ## 配置说明
 
-### 路径配置说明
+### 目录结构（固定）
+所有用户数据都统一存储在当前工作目录的 `fat-loss-tracker/` 文件夹下，无需手动配置路径：
 
-| 配置项 | 说明 | 示例 |
-|--------|------|------|
-| records_root_path | 记录存放根路径 | `"./records"` 或 `"D:/MyRecords/fat-loss"` |
-| plan_filename | 减脂计划文件名 | `"减脂计划.md"` |
-| weight_filename | 体重记录文件名 | `"体重记录.md"` |
-| daily_dirname | 每日记录目录名 | `"daily"` |
+```
+./fat-loss-tracker/
+├── config.yaml      # 配置文件
+├── 减脂计划.md      # 减脂计划文件
+├── 体重记录.md      # 体重记录文件
+└── daily/           # 每日记录目录
+    └── YYYY-MM-DD.md
+```
+
+### 配置项说明
+
+| 配置项 | 说明 |
+|--------|------|
+| user_info.nickname | 用户昵称（例如：长沙彭于晏） |
+| user_info.target_weight | 目标体重(kg) |
+| user_info.height | 身高(cm) |
+| user_info.age | 年龄 |
+| initialized | 是否已完成初始化（系统自动管理） |
 
 ## 使用示例
 
@@ -113,7 +132,7 @@ fat-loss-tracker/                    # 项目根目录
 └── .gitignore                      # Git 忽略规则
 ```
 
-**注意：安装时只需将 `fat-loss-tracker` 子文件夹（包含 skill.md）放置到 Claude Code 的 skills 目录下。首次运行时会自动创建 config.yaml 文件。**
+**注意：安装时只需将技能文件夹放置到 Claude Code 的 skills 目录下即可。使用时技能会自动在你的当前工作目录创建 fat-loss-tracker 记录文件夹，所有个人数据都保存在此目录下，方便管理和备份。**
 
 ## 贡献指南
 

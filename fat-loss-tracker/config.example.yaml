@@ -1,29 +1,13 @@
 # 减脂追踪助手配置文件示例
 # 复制此文件为 config.yaml 并填写您的配置
-
-# 记录存放根路径（支持相对路径或绝对路径）
-# 相对路径：相对于配置文件所在目录
-# 示例：
-#   - "./records" (相对路径)
-#   - "D:/MyRecords/fat-loss" (Windows 绝对路径)
-#   - "/home/user/records" (Linux/Mac 绝对路径)
-records_root_path: ""
-
-# 减脂计划文件名（相对于 records_root_path）
-plan_filename: "减脂计划.md"
-
-# 体重记录文件名（相对于 records_root_path）
-weight_filename: "体重记录.md"
-
-# 每日记录目录名（相对于 records_root_path）
-daily_dirname: "daily"
+# 注意：所有文件路径都是固定的，无需手动配置
 
 # 用户信息（可选，用于个性化建议）
 user_info:
-  name: ""
-  target_weight: null
-  height: null
-  age: null
+  nickname: ""                   # 昵称（例如：长沙彭于晏）
+  target_weight: null            # 目标体重(kg)
+  height: null                   # 身高(cm)
+  age: null                      # 年龄
 
 # 首次使用标记（系统自动管理，请勿手动修改）
 initialized: false
